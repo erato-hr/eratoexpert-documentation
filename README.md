@@ -1,4 +1,3 @@
-# EratoExpertDoc
-EratoExpert API documentation
+# EratoExpert API documentation
 
 http://doc.developer.erato.hr
