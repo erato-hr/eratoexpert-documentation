@@ -121,6 +121,7 @@ Requests are made via HTTPS protocol to EratoExpert execution server (server:por
 
 Parameter | Type    | Required | Description
 --------- | ------- | -------- | -----------
+project | string | true | Project slug
 query | string | true | Application user's natural language query
 corpus | string | false | "ACTIONS" or "KNOWLEDGE" or empty. If empty, it will search both ACTIONS and Q&A part of the project.
 action | string | false | Action code retrieved in previous EratoExpert call
