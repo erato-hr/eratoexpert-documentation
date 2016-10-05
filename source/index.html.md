@@ -151,7 +151,8 @@ missing | array[string] | false | Specific action variables that were missing in
             "certainty": 54.12,
             "type": "ACTION"
         },
-    "answers": ["up to three JSON dictinaries, same as in top_answer attribute above"]
+    "answers": ["up to three JSON dictinaries, same as in top_answer attribute above"],
+    "thresholds": {"negative": "20", "differential": "15", "positive": "70"} 
 }
 ```
 > **Response JSON body for recognized Q/A (KNOWLEDGE)**
@@ -169,7 +170,8 @@ missing | array[string] | false | Specific action variables that were missing in
           "certainty": 54.12,
           "type": "ACTION"
         },
-    "answers": ["up to three JSON dictinaries, same as in top_answer attribute above"]
+    "answers": ["up to three JSON dictinaries, same as in top_answer attribute above"],
+    "thresholds": {"negative": "20", "differential": "15", "positive": "70"} 
 }
 ```
 
