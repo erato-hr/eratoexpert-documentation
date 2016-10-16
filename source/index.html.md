@@ -53,25 +53,36 @@ EratoExpert execution server uses BasicAuth over SSL. You can define username an
 # Request
 
 ```python
-  import requests
-
-  result = None
-  error = None
-
-  try:
-      req = requests.get(
+    import requests, sys, traceback
+    from http.server import BaseHTTPRequestHandler
+  
+    result = None
+    error = None
+    
+    try:
+        req = requests.get(
           "https://your-eratoexpert-server/?query=your app user natural language query&corpus=KNOWLEDGE",
           auth=("username", "password"),  # BasicAuth
           verify=False  # if certificate is not authorized
-      )
-      result = req.json()
-      if req.status_code != requests.codes.ok:
-          error = req.status_code
-  except requests.ConnectionError:
-      error = _("ConnectionError")
-  except:
-      error = _("Unknown error, contact support!")
-      traceback.print_tb(sys.exc_info()[3])
+        )
+        if req.status_code != requests.codes.ok:
+            error = str(req.status_code) + " " + BaseHTTPRequestHandler.responses[req.status_code][0]
+        try:
+            result = req.json()
+        except ValueError:
+            if not error:
+                error = "Error in decoding JSON from execution server."
+            else:  # error details go to result if error is populated
+                result = "Error in decoding JSON from execution server."    
+    
+    except requests.ConnectionError:
+        error = "ConnectionError"
+    except:
+        if not error:
+            error = "Unknown error, contact support!"
+        ex = sys.exc_info()
+        if ex and isinstance(ex, tuple) and len(ex) > 2:
+            traceback.print_tb(ex[3])
 ```
 
 ```objective_c
