@@ -201,6 +201,28 @@ When you get such response, usually you will call this method again with "action
 Do not forget - if you do not set "corpus" parameter or you send it empty in the request, you can get mixed actions and knowledge answers. Be sure that that is the behavior you are expecting!
 </aside>
 
+### Thresholds 
+Thresholds dictionary key contains values that you enter in your project settings page on your developer console.
+Those settings are just propagated in response without any usage within exection server.
+They can be used in your client application using EratoExpert API to tune user experience in regard to certainty sensitivity 
+ for each answer you get in answer from EratoExpert execution server.
+ 
+ * `positive` - If answer certainty is higher than this, treat it as a correct answer
+ * `negative` - If answer certainty is lower than this, treat it as an incorrect answer
+ * `differential` - If the difference of two or more answers are within this number, offer user to select the correct one
+  
+Since you are the one that will be entering Actions and/or Q&A for your project, you know the best how "similar" the answers might be, so
+ you will probably need to adjust this parameters to reflect sensitivity of answers management in your application. 
+ 
+Standard use-case is that if you have one "positive" answer (with certainty higher than "positive" value), show it to the 
+ user of your application as the correct answer. 
+If you have more than one positive answers and difference of top answer and other positive answers are within "differental" value,
+ show as many as there are - there might be more than correct answer. Again, you will know the best.
+If you have answers that are below "negative" threshold, you should probably ignore those.
+It leaves us with answers between "positive" and "negative" threshold. Usually, you want to show "I'm not sure, did you mean on ..." 
+ text before showing multiple answers and leave for a user to select the one that is correct.
+
+
 ## Action variables
 
 In EratoExpert web console you can define actions and these actions can contain variables which you want retrieve in response. If variables are recognized by EratoExpert, they will be returned in response as populated values from natural language query. 
