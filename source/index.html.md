@@ -15,7 +15,7 @@ search: true
 ---
 # EratoExpert API
 
-EratoExpert API provides means to get *answers* and/or *actions* defined in [EratoExpert's web console](http://developer.erato.hr) based on your user's natural language query. 
+EratoExpert API provides means to get *answers* and/or *actions* defined in your [EratoExpert's web console](http://developer.erato.hr) based on your user's natural language query. 
 Depending on your licence, you can define one or more EratoExpert projects in your web console. Each project gets its own EratoExpert execution server and each execution server provides API over SSL for consumers to use. 
 
 EratoExpert API consumers will get up to top three results from EratoExpert execution server for specific project from a natural language query string.
@@ -56,8 +56,8 @@ EratoExpert execution server uses BasicAuth over SSL. You can define username an
     import requests, sys, traceback
     from http.server import BaseHTTPRequestHandler
   
-    result = None
-    error = None
+    result = None  # result object or error description
+    error = None  # error string
     
     try:
         req = requests.get(
@@ -67,19 +67,22 @@ EratoExpert execution server uses BasicAuth over SSL. You can define username an
         )
         if req.status_code != requests.codes.ok:
             error = str(req.status_code) + " " + BaseHTTPRequestHandler.responses[req.status_code][0]
-        try:
-            result = req.json()
-        except ValueError:
-            if not error:
-                error = "Error in decoding JSON from execution server."
-            else:  # error details go to result if error is populated
-                result = "Error in decoding JSON from execution server."    
-    
+            result = ""
+
+        if req.status_code == requests.codes.ok or req.status_code == 400:  # EE sends 400 and JSON data
+            try:
+                result = req.json()
+            except ValueError:
+                if not error:
+                    error = _("Error in decoding JSON from execution server.")
+                else:   # "result" containers error details if error is populated
+                    result = _("Error in decoding JSON from execution server.")
+
     except requests.ConnectionError:
-        error = "ConnectionError"
+        error = _("ConnectionError")
     except:
         if not error:
-            error = "Unknown error, contact support!"
+            error = _("Unknown error, contact support!")
         ex = sys.exc_info()
         if ex and isinstance(ex, tuple) and len(ex) > 2:
             traceback.print_tb(ex[3])
