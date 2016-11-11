@@ -138,7 +138,7 @@ Parameter | Type    | Required | Description
 project | string | true | Project slug visible in your project settings in your EratoExpert web console
 query | string | true | Application user's natural language query
 corpus | string | false | "ACTIONS" or "KNOWLEDGE" or empty. If empty, it will search both ACTIONS and Q&A part of the project.
-action | string | false | Action code retrieved in previous EratoExpert call
+action | string | false | Action id retrieved in previous EratoExpert call (from attribute "id")
 missing | array[string] | false | Specific action variables that were missing in previous call 
 
 # Response
@@ -157,7 +157,7 @@ missing | array[string] | false | Specific action variables that were missing in
     "query": "Query provided in request",
     "query_type": "Corpus type from request, if provided. ACTION or empty for this example.",
     "top_answer": {
-            "action": "ACTION CODE",
+            "id": "ITEM ID",
             "variables": {
                 "VARIABLE_1": {"_final_": "Some recognized value"}
             },
@@ -178,8 +178,9 @@ missing | array[string] | false | Specific action variables that were missing in
     "return_code": 0,
     "duration": 76,
     "query": "Query provided in request",
-    "query_type": "Corpus type from request, if provided. KNOWLEDGE or empty for this example.",
+    "query_type": "Corpus type set in request, if provided. KNOWLEDGE or empty for this example.",
     "top_answer": {
+          "id": "ITEM ID",
           "answer": "This is an answer for this project defined in Q&A section",
           "certainty": 54.12,
           "type": "ACTION"
