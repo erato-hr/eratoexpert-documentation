@@ -139,7 +139,7 @@ project | string | true | Project slug visible in your project settings in your 
 query | string | true | Application user's natural language query
 corpus | string | false | "ACTIONS" or "KNOWLEDGE" or empty. If empty, it will search both ACTIONS and Q&A part of the project.
 action | string | false | Action id retrieved in previous EratoExpert call (from attribute "id")
-missing | array[string] | false | Specific action variables that were missing in previous call 
+missing | array[string] | false | Specific action variables that were missing in previous call so that only those will be searched for.
 
 # Response
 
