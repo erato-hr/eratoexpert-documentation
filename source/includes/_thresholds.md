@@ -29,13 +29,13 @@ nakon čega bi uslijedila lista ID-eva svih odgovora unutar tog "razlikovnog" pr
 
 Ako se najbolje ocijenjeni odgovor i drugi najbolje ocijenjen odgovor ne nalaze unutar razlikovnog praga, sljedeći korak ovisi o rangu sigurnosti tih odgovora:
 
- 1. Ako je "top" odgovor pozitivan, tj. ako je sigurnost odgovora s najvećim postotkom iznad pozitivnog praga, treba prikazati putpuni tekst tog top odgovora. 
+ 1. Ako je "top" odgovor pozitivan, tj. ako je sigurnost odgovora s najvećim postotkom iznad **pozitivnog praga**, treba prikazati putpuni tekst tog top odgovora. 
     Ako postoji još odgovora koji su u pozitivnom području, nakon prikaza top odgovora prikazati i druge odgovore iz pozitivnog i srednjeg područja u listi sa uvodnom rečenicom poput:
     *"I ovo bi moglo biti odgovor na tvoje pitanje"*
     
     <img src="../images/knowledge_guidelines/best_with_others.png" width="300">           
 
- 2. Ako je "top" odgovor između pozitivnog i negativnog praga, prikazati uvodnu rečenicu:
+ 2. Ako je "top" odgovor **između pozitivnog i negativnog praga**, prikazati uvodnu rečenicu:
     *"Nisam siguran, ali možda će ti ovo pomoći..."*
     
     Pa ovisno o tome ima li drugih odgovora unutar tog raspona:
@@ -44,7 +44,7 @@ Ako se najbolje ocijenjeni odgovor i drugi najbolje ocijenjen odgovor ne nalaze 
 
     <img src="../images/knowledge_guidelines/uncertain.png" width="300">
 
- 3. Ako su svi odgovori ispod negativnog praga, prikazati ID-eve tih odgovora u listi uz uvodnu rečenicu poput:
+ 3. Ako su svi odgovori ispod **negativnog praga**, prikazati ID-eve tih odgovora u listi uz uvodnu rečenicu poput:
     *"Nisam to još naučio, ali nadam se da će ti ovo pomoći..."*
 
     <img src="../images/knowledge_guidelines/unknown.png" width="300">
