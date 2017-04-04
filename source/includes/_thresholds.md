@@ -23,7 +23,7 @@ Ako se dva ili više najbolje ocijenjenih odgovora nalaze unutar ovog praga (vri
 
 nakon čega bi uslijedila lista ID-eva svih odgovora unutar tog "razlikovnog" praga koje korisnik može kliknuti i dobiti potpuni tekst tog odgovora.
 
-<img src="../images/knowledge_guidelines/differential.png" width="300">
+<img src="../images/knowledge_guidelines/differential.png" width="400">
 
 &nbsp;
 
@@ -33,7 +33,7 @@ Ako se najbolje ocijenjeni odgovor i drugi najbolje ocijenjen odgovor ne nalaze 
     Ako postoji još odgovora koji su u pozitivnom području, nakon prikaza top odgovora prikazati i druge odgovore iz pozitivnog i srednjeg područja u listi sa uvodnom rečenicom poput:
     *"I ovo bi moglo biti odgovor na tvoje pitanje"*
     
-    <img src="../images/knowledge_guidelines/best_with_others.png" width="300">           
+    <img src="../images/knowledge_guidelines/best_with_others.png" width="400">           
 
  2. Ako je "top" odgovor **između pozitivnog i negativnog praga**, prikazati uvodnu rečenicu:
     *"Nisam siguran, ali možda će ti ovo pomoći..."*
@@ -42,17 +42,17 @@ Ako se najbolje ocijenjeni odgovor i drugi najbolje ocijenjen odgovor ne nalaze 
   * Ako postoji još odgovora unutar tog ranga, prikazati listu ID-eva odgovora koje korisnik može kliknuti i dobiti potpuni tekst tog odgovora.
   * Ako nema drugih odgovora, prikažite puni tekst odgovora.
 
-    <img src="../images/knowledge_guidelines/uncertain.png" width="300">
+    <img src="../images/knowledge_guidelines/uncertain.png" width="400">
 
  3. Ako su svi odgovori ispod **negativnog praga**, prikazati ID-eve tih odgovora u listi uz uvodnu rečenicu poput:
     *"Nisam to još naučio, ali nadam se da će ti ovo pomoći..."*
 
-    <img src="../images/knowledge_guidelines/unknown.png" width="300">
+    <img src="../images/knowledge_guidelines/unknown.png" width="400">
 
 Nakon što je korisniku prikazan potpuni tekst odgovora (bilo odmah bilo odabirom odgovora iz liste), a postoji još drugih odgovora vraćenih kroz API, prikažite mu i listu ID-eva svih drugih odgovora i eventualno dodajte rečenicu poput:
    *"Moglo bi te i ovo zanimati..."*
 
-   <img src="../images/knowledge_guidelines/show_more.png" width="300">
+   <img src="../images/knowledge_guidelines/show_more.png" width="400">
 
 
 <!-- Repetitive ... ? -->
