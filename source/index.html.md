@@ -220,7 +220,7 @@ They can be used in your client application using EratoExpert API to tune user e
 Since you are the one that will be entering Actions and/or Q&A for your project, you know the best how "similar" the answers might be, so
  you will probably need to adjust this parameters to reflect sensitivity of answers management in your application. 
  
-Read more about crafting good user experience with this thresholds [here](#preporuke-za-stvaranje-dobrog-korisnickog-iskustva). 
+Read more about crafting good user experience with this thresholds [here](#preporuke-za-stvaranje-dobrog-korisnikog-iskustva). 
 
 
 ## Action variables
