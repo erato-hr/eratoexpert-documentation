@@ -40,9 +40,9 @@ Ako se najbolje ocijenjeni odgovor i drugi najbolje ocijenjen odgovor ne nalaze 
     
     Pa ovisno o tome ima li drugih odgovora unutar tog raspona:
 
-    * Ako postoji još odgovora unutar tog ranga, prikazati listu ID-eva odgovora koje korisnik može kliknuti i dobiti potpuni tekst tog odgovora.
+     * Ako postoji još odgovora unutar tog ranga, prikazati listu ID-eva odgovora koje korisnik može kliknuti i dobiti potpuni tekst tog odgovora.
 
-    * Ako nema drugih odgovora, prikažite puni tekst odgovora.
+     * Ako nema drugih odgovora, prikažite puni tekst odgovora.
 
     <img src="../images/knowledge_guidelines/uncertain.png" width="300">
 
