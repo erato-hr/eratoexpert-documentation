@@ -10,7 +10,6 @@ toc_footers:
 
 includes:
   - errors
-  
   - thresholds
 
 search: true

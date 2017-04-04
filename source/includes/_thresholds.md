@@ -1,4 +1,4 @@
-## Preporuke za stvaranje dobrog korisničkog iskustva
+# Preporuke za stvaranje dobrog korisničkog iskustva
 
 EratoExpert može vratiti top N (default 3) odgovora. Može vratiti manje ako je prepoznata sigurnost drugih odgovora jednaka 0.
 Svaki odgovor ima pridijeljenu “sigurnost” (“certainty” key u JSON-u) koja predstavlja sigurnost sustava da je dani odgovor točan - postotak od 0 do 100, decimalni broj.
