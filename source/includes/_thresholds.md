@@ -16,8 +16,6 @@ S obzirom na to da ćete vi unositi odgovore i akcije za svoj projekt, najbolje 
 
 Na temelju ovih pragova nekoliko je kombinacija odgovora s pripadajućim postocima sigurnosti koje biste krajnjem korisniku trebali prikazati na različite načine radi optimizacije iskustva krajnjeg korisnika.
 
-#### Upravljanje korisničkim iskustvom
-
 Krenimo s **"razlikovnim"** pragom.
 
 Ako se dva ili više najbolje ocijenjenih odgovora nalaze unutar ovog praga (vrijednost = najveći postotak sigurnosti - drugi najveći postotak sigurnosti; vrijednost < razlikovni prag), korisniku trebate ponuditi mogućnost odabira pravog odgovora uz uvodnu rečenicu poput ove: 
