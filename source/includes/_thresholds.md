@@ -21,7 +21,7 @@ Na temelju ovih pragova nekoliko je kombinacija odgovora s pripadajućim postoci
 Krenimo s **"razlikovnim"** pragom.
 
 Ako se dva ili više najbolje ocijenjenih odgovora nalaze unutar ovog praga (vrijednost = najveći postotak sigurnosti - drugi najveći postotak sigurnosti; vrijednost < razlikovni prag), korisniku trebate ponuditi mogućnost odabira pravog odgovora uz uvodnu rečenicu poput ove: 
-> "Dvoumim se, što te od ovoga zanima?"
+*"Dvoumim se, što te od ovoga zanima?"*
 
 nakon čega bi uslijedila lista ID-eva svih odgovora unutar tog "razlikovnog" praga koje korisnik može kliknuti i dobiti potpuni tekst tog odgovora.
 
@@ -33,12 +33,12 @@ Ako se najbolje ocijenjeni odgovor i drugi najbolje ocijenjen odgovor ne nalaze 
 
  1. Ako je "top" odgovor pozitivan, tj. ako je sigurnost odgovora s najvećim postotkom iznad pozitivnog praga, treba prikazati putpuni tekst tog top odgovora. 
     Ako postoji još odgovora koji su u pozitivnom području, nakon prikaza top odgovora prikazati i druge odgovore iz pozitivnog i srednjeg područja u listi sa uvodnom rečenicom poput:
-    > "I ovo bi moglo biti odgovor na tvoje pitanje"
+    *"I ovo bi moglo biti odgovor na tvoje pitanje"*
     
     <img src="../images/knowledge_guidelines/best_with_others.png" width="300">           
 
  2. Ako je "top" odgovor između pozitivnog i negativnog praga, prikazati uvodnu rečenicu:
-    > "Nisam siguran, ali možda će ti ovo pomoći..."
+    *"Nisam siguran, ali možda će ti ovo pomoći..."*
     
     Pa ovisno o tome ima li drugih odgovora unutar tog raspona:
 
@@ -49,12 +49,12 @@ Ako se najbolje ocijenjeni odgovor i drugi najbolje ocijenjen odgovor ne nalaze 
     <img src="../images/knowledge_guidelines/uncertain.png" width="300">
 
  3. Ako su svi odgovori ispod negativnog praga, prikazati ID-eve tih odgovora u listi uz uvodnu rečenicu poput:
-    > "Nisam to još naučio, ali nadam se da će ti ovo pomoći..."
+    *"Nisam to još naučio, ali nadam se da će ti ovo pomoći..."*
 
     <img src="../images/knowledge_guidelines/unknown.png" width="300">
 
 Nakon što je korisniku prikazan potpuni tekst odgovora (bilo odmah bilo odabirom odgovora iz liste), a postoji još drugih odgovora vraćenih kroz API, prikažite mu i listu ID-eva svih drugih odgovora i eventualno dodajte rečenicu poput:
-   > "Moglo bi te i ovo zanimati..."
+   *"Moglo bi te i ovo zanimati..."*
 
    <img src="../images/knowledge_guidelines/show_more.png" width="300">
 
