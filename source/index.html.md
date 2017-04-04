@@ -10,6 +10,7 @@ toc_footers:
 
 includes:
   - errors
+  
   - thresholds
 
 search: true
@@ -219,13 +220,7 @@ They can be used in your client application using EratoExpert API to tune user e
 Since you are the one that will be entering Actions and/or Q&A for your project, you know the best how "similar" the answers might be, so
  you will probably need to adjust this parameters to reflect sensitivity of answers management in your application. 
  
-Standard use-case is that if you have one "positive" answer (with certainty higher than "positive" value), show it to the 
- user of your application as the correct answer. 
-If you have more than one positive answers and difference of top answer and other positive answers are within "differental" value,
- show as many as there are - there might be more than correct answer. Again, you will know the best.
-If you have answers that are below "negative" threshold, you should probably ignore those.
-It leaves us with answers between "positive" and "negative" threshold. Usually, you want to show "I'm not sure, did you mean on ..." 
- text before showing multiple answers and leave for a user to select the one that is correct.
+Read more about crafting good user experience with this thresholds [here](#preporuke-za-stvaranje-dobrog-korisnickog-iskustva). 
 
 
 ## Action variables
