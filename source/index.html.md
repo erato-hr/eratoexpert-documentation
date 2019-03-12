@@ -355,12 +355,648 @@ JSON objekte možete validirati prema JSON schemi na [https://www.jsonschemavali
 
 ## Galerija
 
+> JSON schema
 
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "properties": {
+    "images": {
+      "id": "/properties/images",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "properties": {
+          "url": {
+            "id": "/properties/images/items/url",
+            "type": "string"
+          },
+          "title": {
+            "id": "/properties/images/items/title",
+            "type": "string"
+          },
+          "subtitle": {
+            "id": "/properties/images/items/subtitle",
+            "type": "string"
+          },
+          "link": {
+            "id": "/properties/images/items/link",
+            "type": "string",
+            "pattern": "(http|https):\/\/.*"
+          },
+          "buttons": {
+            "id": "/properties/images/items/buttons",
+            "items": {
+              "id": "/properties/images/items/buttons/items",
+              "properties": {
+                "link": {
+                  "id": "/properties/buttons/items/properties/link",
+                  "type": "string"
+                },
+                "title": {
+                  "id": "/properties/buttons/items/properties/title",
+                  "type": "string"
+                },
+                "type": {
+                  "id": "/properties/buttons/items/properties/type",
+                  "enum": [
+                    "link_external",
+                    "link_internal"
+                  ]
+                }
+              },
+              "minItems": 1,
+              "required": [
+                "type",
+                "link",
+                "title"
+              ],
+              "type": "object",
+              "additionalProperties": true
+            },
+            "type": "array"
+          },
+        },
+        "required": [
+          "url",
+          "title"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "id": {
+      "id": "/properties/id"
+    },
+    "type": {
+      "id": "/properties/type",
+      "enum": [
+        "gallery"
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "images"
+  ],
+  "type": "object"
+}
+```
+
+> Primjer JSON-a sa slike
+
+```json
+{
+  "id": 24,
+  "type": "gallery",
+  "top_certainty": 100,
+  "uid": "5e24074f1b9242f0b9cde8f07ca8cd04",
+  "sid": "5e24074f1b9242f0b9cde8f07ca8cd04",
+  "blockId": 3,
+  "position": null,
+  "images": [
+    {
+      "id": 1,
+      "title": "Baka Crvenkapice",
+      "subtitle": "Draga baka kojoj crvenkapica nosi košaricu s hranom!",
+      "buttons": [],
+      "url": "/static-api/erato-help-bot/img/4a45bf69-2b18-491f-a8bc-30337ccca8a0.jpg",
+      "link": "http://crvenkapica.hr"
+    },
+    {
+      "id": 2,
+      "title": "Zločesti vuk",
+      "subtitle": "Želi stići do bakice prije Crvenakapice!",
+      "buttons": [],
+      "url": "/static-api/erato-help-bot/img/1d080ba6-aafd-4df1-a833-12d957760156.jpg",
+      "link": "http://crvenkapica.hr"
+    }
+  ],
+  "timestamp": 1552317777.482227
+}
+```
+
+Element pomoću kojeg prikazujemo galeriju slika korisniku.
+
+atribut | vrijednost
+--------- | ------- 
+type | gallery
+
+<img src="../images/elements/gallery.png" style="max-width: 300px">
+
+JSON shema koja definira strukturu elementa, te primjeri strukture elemenata sa slike su vidljivi s desne strane. 
+JSON objekte možete validirati prema JSON schemi na [https://www.jsonschemavalidator.net](https://www.jsonschemavalidator.net).
 
 ## Video
 
+> JSON schema
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "properties": {
+    "id": {
+      "id": "/properties/id"
+    },
+    "type": {
+      "id": "/properties/type",
+      "enum": ["video"]
+    },
+    "url": {
+      "id": "/properties/url",
+      "type": "string",
+      "pattern": "(http|https):\/\/.*"
+    }
+  },
+  "required": [
+    "url",
+    "type",
+    "id"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}
+```
+
+> Primjer sa slike
+
+```json
+{
+  "id": 54,
+  "blockId": 9,
+  "position": 1,
+  "uid": "5e24074f1b9242f0b9cde8f07ca8cd04",
+  "sid": "5e24074f1b9242f0b9cde8f07ca8cd04",
+  "type": "video",
+  "url": "https://www.youtube.com/watch?v=02W4L3l6660",
+  "timestamp": 1552319155.817773
+}
+```
+
+Element pomoću kojeg prikazujemo video korisniku.
+
+atribut | vrijednost
+--------- | ------- 
+type | video
+
+<img src="../images/elements/video.png" style="max-width: 300px">
+
+JSON shema koja definira strukturu elementa, te primjeri strukture elemenata sa slike su vidljivi s desne strane. 
+JSON objekte možete validirati prema JSON schemi na [https://www.jsonschemavalidator.net](https://www.jsonschemavalidator.net).
+
 ## Lista
+
+> JSON schema
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "properties": {
+    "header": {
+      "id": "/properties/header",
+      "type": "object",
+      "properties": {
+        "image": {
+          "id": "/properties/header/properties/image",
+          "type": "string",
+          "pattern": "(http|https)://.*"
+        },
+        "title": {
+          "id": "/properties/header/items/title",
+          "type": "string"
+        },
+        "subtitle": {
+          "id": "/properties/header/properties/subtitle",
+          "type": "string"
+        },
+        "link": {
+          "id": "/properties/header/properties/link",
+          "type": "string",
+          "pattern": "(http|https)://.*"
+        },
+        "button": {
+          "id": "/properties/header/properties/button",
+          "properties": {
+            "link": {
+              "id": "/properties/header/properties/button/properties/link",
+              "type": "string"
+            },
+            "title": {
+              "id": "/properties/header/properties/button/properties/title",
+              "type": "string"
+            },
+            "type": {
+              "id": "/properties/header/properties/button/properties/type",
+              "enum": [
+                "link_external",
+                "link_internal"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "link",
+            "title"
+          ],
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "allOf": [
+        {
+          "required": [
+            "title"
+          ],
+          "anyOf": [
+            {
+              "required": [
+                "subtitle"
+              ]
+            },
+            {
+              "required": [
+                "button"
+              ]
+            },
+            {
+              "required": [
+                "image"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": true
+    },
+    "elements": {
+      "id": "/properties/elements",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "items": {
+        "properties": {
+          "image": {
+            "id": "/properties/elements/items/image",
+            "type": "string"
+          },
+          "title": {
+            "id": "/properties/elements/items/title",
+            "type": "string"
+          },
+          "subtitle": {
+            "id": "/properties/elements/items/subtitle",
+            "type": "string"
+          },
+          "link": {
+            "id": "/properties/elements/items/link",
+            "pattern": "(http|https)://.*"
+          },
+          "button": {
+            "id": "/properties/elements/items/properties/button",
+            "properties": {
+              "link": {
+                "id": "/properties/elements/items/properties/button/properties/link"
+              },
+              "title": {
+                "id": "/properties/elements/items/properties/button/properties/title",
+                "type": "string"
+              },
+              "type": {
+                "id": "/properties/elements/items/properties/button/properties/type",
+                "enum": [
+                  "link_external",
+                  "link_internal"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "link",
+              "title"
+            ],
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "allOf": [
+          {
+            "required": [
+              "title"
+            ],
+            "anyOf": [
+              {
+                "required": [
+                  "subtitle"
+                ]
+              },
+              {
+                "required": [
+                  "button"
+                ]
+              },
+              {
+                "required": [
+                  "image"
+                ]
+              }
+            ]
+          }
+        ],
+        "additionalProperties": true
+      }
+    },
+    "id": {
+      "id": "/properties/id"
+    },
+    "type": {
+      "id": "/properties/type",
+      "enum": [
+        "list"
+      ]
+    },
+    "button": {
+      "id": "/properties/button",
+      "properties": {
+        "link": {
+          "id": "/properties/button/properties/link"
+        },
+        "title": {
+          "id": "/properties/button/properties/title",
+          "type": "string"
+        },
+        "type": {
+          "id": "/properties/button/properties/type",
+          "enum": [
+            "link_external",
+            "link_internal"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "link",
+        "title"
+      ],
+      "oneOf": [
+        {"type": "null"},
+        {"type": "object"}
+      ],
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "type",
+    "elements"
+  ],
+  "type": "object"
+}
+```
+
+> Primjer JSON-a sa slike
+
+```json
+{
+  "id": 44,
+  "type": "list",
+  "uid": "5e24074f1b9242f0b9cde8f07ca8cd04",
+  "timestamp": 1552318199.973706,
+  "blockId": 7,
+  "elements": [
+    {
+      "id": 1,
+      "title": "Košara za baku",
+      "subtitle": "Jabuke su fine!",
+      "button": {
+        "type": "link_internal",
+        "isNew": false,
+        "link": 9,
+        "title": "Pogledaj video"
+      },
+      "image": "/static-api/erato-help-bot/img/61449db1-4b3a-4064-9030-f581a55bfe77.jpg",
+      "link": "http://jabuke.hr"
+    },
+    {
+      "id": 2,
+      "title": "Cvijet za bakicu",
+      "subtitle": "Lijepi crveni cvijet!",
+      "button": {
+        "type": "link_internal",
+        "isNew": false,
+        "link": 11,
+        "title": "Pogledaj sliku"
+      },
+      "image": "/static-api/erato-help-bot/img/0be0b86e-6c9d-4f99-9e29-aea9072164e7.jpg",
+      "link": "http://cvijet.hr"
+    }
+  ],
+  "button": null,
+  "position": 2,
+  "sid": "5e24074f1b9242f0b9cde8f07ca8cd04"
+}
+```
+
+Element pomoću kojeg prikazujemo listu korisniku.
+
+atribut | vrijednost
+--------- | ------- 
+type | list
+
+<img src="../images/elements/list.png" style="max-width: 300px">
+
+JSON shema koja definira strukturu elementa, te primjeri strukture elemenata sa slike su vidljivi s desne strane. 
+JSON objekte možete validirati prema JSON schemi na [https://www.jsonschemavalidator.net](https://www.jsonschemavalidator.net).
 
 ## Gumbići
 
+> JSON schema
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "type": "object",
+  "properties": {
+    "buttons": {
+      "id": "/properties/buttons",
+      "minItems": 1,
+      "items": {
+        "id": "/properties/buttons/items",
+        "properties": {
+          "id": {
+            "id": "/properties/buttons/items/properties/id",
+            "type": "integer"
+          },
+          "type": {
+            "id": "/properties/buttons/items/properties/type",
+            "enum": [
+              "value",
+              "link_internal",
+              "link_external"
+            ]
+          },
+          "link": {
+            "id": "/properties/buttons/items/properties/link"
+          },
+          "title": {
+            "id": "/properties/buttons/items/properties/title",
+            "type": "string"
+          },
+          "value": {
+            "id": "/properties/buttons/items/properties/value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "additionalProperties": true
+      },
+      "type": "array"
+    },
+    "id": {
+      "id": "/properties/id",
+      "type": "integer"
+    },
+    "type": {
+      "id": "/properties/type",
+      "enum": [
+        "buttons"
+      ]
+    },
+    "variables": {
+      "id": "/properties/variables",
+      "type": "object",
+      "patternProperties": {
+        "^{{.*}}$": {
+          "properties": {
+            "type": {
+              "id": "/properties/variables/type",
+              "enum": ["list"]
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      }
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "buttons"
+  ]
+}
+```
+
+> Primjer sa slike
+
+```json
+{
+  "id": 63,
+  "type": "buttons",
+  "uid": "9845e828e859471ba393779409811422",
+  "buttons": [
+    {
+      "id": 2,
+      "type": "value",
+      "isNew": false,
+      "title": "Drugi put",
+      "variables": {},
+      "corpus": [],
+      "link": "",
+      "value": "Drugi put"
+    },
+    {
+      "id": 1,
+      "type": "link_internal",
+      "isNew": false,
+      "title": "Može, idemo!",
+      "value": "Zvuči zanimljivo",
+      "link": 10
+    }
+  ],
+  "timestamp": 1552319809.464607,
+  "variables": {},
+  "blockId": 1,
+  "corpus": [],
+  "position": null,
+  "sid": "9845e828e859471ba393779409811422"
+}
+```
+
+Element pomoću kojeg prikazujemo horizontalne gumbiće korisniku.
+Specifičnost ovog elementa je u tome da korisnik **mora** odbrati jedan od gumbića da bi nastavio dalje.
+
+
+atribut | vrijednost
+--------- | ------- 
+type | buttons
+
+<img src="../images/elements/buttons.png" style="max-width: 300px">
+
+JSON shema koja definira strukturu elementa, te primjeri strukture elemenata sa slike su vidljivi s desne strane. 
+JSON objekte možete validirati prema JSON schemi na [https://www.jsonschemavalidator.net](https://www.jsonschemavalidator.net).
+
 ## API akcija
+
+> JSON schema
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "properties": {
+    "id": {
+      "id": "/properties/id"
+    },
+    "type": {
+      "id": "/properties/type",
+      "enum": ["api_action"]
+    },
+    "action": {
+      "id": "/properties/action",
+      "type": "string"
+    }
+  },
+  "required": [
+    "action",
+    "type",
+    "id"
+  ],
+  "type": "object",
+  "additionalProperties": true
+}
+```
+
+> Primjer sa slike
+
+```json
+{
+  "id": 88,
+  "blockId": 16,
+  "uid": "d5ed9945637342b5a9c406bc66a07fd5",
+  "sid": "d5ed9945637342b5a9c406bc66a07fd5",
+  "type": "api_action",
+  "action": "SERVERSKA_AKCIJA_1",
+  "variables-input": {
+    "iznos": "100"
+  },
+  "timestamp": 1552319660.077679,
+}
+```
+
+Api akcija u principu ne služi za prikaz sadržaja korisniku, već se koristi kao oznaka onome tko koristi Erato API da je potrebno nešto učiniti u tom trenutku, obično odraditi neku akciju na serveru.
+U tom elementu moguće je poslati jednu ili više varijabli dobivenih u dijalogu ranije koja se može koristiti za izvršenje neke akcije na serveru.
+
+atribut | vrijednost
+--------- | ------- 
+type | api_action
+
+<img src="../images/elements/api_action.png" style="width: 100%">
+
+JSON shema koja definira strukturu elementa, te primjeri strukture elemenata sa slike su vidljivi s desne strane. 
+JSON objekte možete validirati prema JSON schemi na [https://www.jsonschemavalidator.net](https://www.jsonschemavalidator.net).
