@@ -990,7 +990,9 @@ JSON objekte možete validirati prema JSON schemi na [https://www.jsonschemavali
 ```
 
 Api akcija u principu ne služi za prikaz sadržaja korisniku, već se koristi kao oznaka onome tko koristi Erato API da je potrebno nešto učiniti u tom trenutku, obično odraditi neku akciju na serveru.
-U tom elementu moguće je poslati jednu ili više varijabli dobivenih u dijalogu ranije koja se može koristiti za izvršenje neke akcije na serveru.
+U tom elementu je kroz sučelje moguće je proslijediti jednu ili više varijabli dobivenih ranije u dijalogu, a koja se može koristiti za izvršenje neke akcije na serveru.
+
+Također, moguće je definirati opcionalne izlazne varijable koje će ta API akcija vratiti nazad u dijalog. Vraćanje varijable natrag u dijalog radi se tako da nakon što vanjski sustav izvrši željenu API akciju i dobije vrijednosti koje želi spremiti u varijablu, pozove Erato API metodu [continue](#api-chat-continue) u kojoj će popuniti parametar `varijables-output`, a u `messages` treba poslati povijest koja na posljednjem mjestu sadrži taj dobiveni element API akcije. Ta će metoda tada vratiti nastavak dijalog od tog elementa.
 
 atribut | vrijednost
 --------- | ------- 
